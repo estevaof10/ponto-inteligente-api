@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
@@ -39,6 +40,7 @@ public class Empresa {
 	public void setId(Long id){
 		this.id=id;
 	}
+	
 	@Column(name = "razao_social",nullable = false)
 	public String getRazaoSocial() {
 		return razaoSocial;
@@ -88,4 +90,21 @@ public class Empresa {
 	public void preUpdate() {
 		dataAtualizacao = new Date();
 	}
+	
+	@PrePersist
+	public void prePersit() {
+		final Date atual = new Date();
+		dataCriacao = atual;
+		dataAtualizacao = atual;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Empresa [id=" + id + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", dataCriacao=" + dataCriacao
+				+ ", dataAtualizacao=" + dataAtualizacao + "]";
+	}
+	
+	
+	
 }
