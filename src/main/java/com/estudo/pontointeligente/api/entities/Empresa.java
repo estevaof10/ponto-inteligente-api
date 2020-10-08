@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "empresa")
 public class Empresa {
 	
-	private static final long serialVersion = 3960436649365666213L;
+	private static final long serialVersionUID = 3960436649365666213L;
 	
 	private Long id;
 	private String razaoSocial;

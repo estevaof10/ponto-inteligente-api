@@ -27,7 +27,7 @@ import com.estudo.pontointeligente.api.enums.PerfilEnum;
 @Table(name = "funcionario")
 public class Funcionario {
 	
-	private static final long serialVersion = -5754246207015712518L;
+	private static final long serialVersionUID = -5754246207015712518L;
 	
 	private Long id;
 	private String name;
@@ -46,6 +46,7 @@ public class Funcionario {
 	public Funcionario() {
 		
 	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public Long getId() {
